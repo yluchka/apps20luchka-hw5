@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class AsIntStream implements IntStream {
-    ArrayList<Integer> arrList;
+    private ArrayList<Integer> arrList;
 
     private AsIntStream(ArrayList<Integer> values) {
         arrList = new ArrayList<>(values);
@@ -32,7 +32,7 @@ public class AsIntStream implements IntStream {
         return sum() / (double) count();
     }
 
-    private Integer MaxMin(boolean max) {
+    private Integer maxMin(boolean max) {
         checkEmpty();
         if (max) {
             return Collections.max(arrList);
@@ -43,12 +43,12 @@ public class AsIntStream implements IntStream {
 
     @Override
     public Integer max() {
-        return MaxMin(true);
+        return maxMin(true);
     }
 
     @Override
     public Integer min() {
-        return MaxMin(false);
+        return maxMin(false);
     }
 
     @Override
